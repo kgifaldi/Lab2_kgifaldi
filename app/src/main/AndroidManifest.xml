@@ -16,6 +16,13 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity"></activity>
+        <activity android:name=".DetailActivity">
+            <user-permission
+                android:name="android.permission.CAMERA"
+            />
+
+        </activity>
+
 
     </application>
 

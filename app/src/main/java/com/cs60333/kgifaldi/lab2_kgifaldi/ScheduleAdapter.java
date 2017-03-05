@@ -14,8 +14,8 @@ import java.util.List;
 /**
  * Created by Kyle on 2/8/2017.
  */
-class ScheduleAdapter<T> extends ArrayAdapter<String[]> {
-    ScheduleAdapter(Context context, int simple_list_item_1, ArrayList<String[]> schedule) {
+class ScheduleAdapter<T> extends ArrayAdapter<Team> {
+    ScheduleAdapter(Context context, int simple_list_item_1, ArrayList<Team> schedule) {
         super(context, R.layout.schedule_item, schedule);
     }
 
@@ -23,13 +23,13 @@ class ScheduleAdapter<T> extends ArrayAdapter<String[]> {
         LayoutInflater scheduleInflater = LayoutInflater.from(getContext());
         View scheduleView = scheduleInflater.inflate(R.layout.schedule_item, parent, false);
 
-        String[] matchItem = getItem(position);
+        Team matchItem = getItem(position);
         TextView teamName = (TextView) scheduleView.findViewById(R.id.textView3);
         TextView gameDate = (TextView) scheduleView.findViewById(R.id.textView4);
-        teamName.setText(matchItem[1]);
-        gameDate.setText(matchItem[2]);
+        teamName.setText(matchItem.getTeamName());
+        gameDate.setText(matchItem.getGameDate());
         ImageView teamLogo = (ImageView) scheduleView.findViewById(R.id.imageView2);
-        String mDrawableName = matchItem[0];
+        String mDrawableName = matchItem.getTeamLogo();
         int resID = getContext().getResources().getIdentifier(mDrawableName, "drawable", getContext().getPackageName());
         teamLogo.setImageResource(resID);
 

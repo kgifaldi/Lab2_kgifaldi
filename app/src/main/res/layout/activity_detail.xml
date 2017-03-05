@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent" android:layout_height="match_parent">
 
     <TextView
@@ -63,9 +64,9 @@
         android:layout_height="wrap_content"
         android:id="@+id/rightTeamLogo"
         android:src="@drawable/lep"
-        android:layout_marginBottom="15dp"
-        android:layout_above="@+id/button"
-        android:layout_toEndOf="@+id/rightTeamName" />
+        android:layout_toEndOf="@+id/rightTeamName"
+        android:layout_alignBottom="@+id/leftTeamLogo"
+        android:layout_below="@+id/time" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -112,15 +113,6 @@
         android:layout_below="@+id/finalScore"
         android:layout_centerHorizontal="true" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Camera"
-        android:id="@+id/button"
-        android:layout_marginBottom="112dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -131,5 +123,23 @@
         android:layout_alignBottom="@+id/location"
         android:layout_alignParentEnd="true"
         android:textSize="40px" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Camera"
+        android:id="@+id/button"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="17dp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/tempimage"
+        android:id="@+id/photo_taken"
+        android:layout_marginBottom="30dp"
+        android:layout_above="@+id/button"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

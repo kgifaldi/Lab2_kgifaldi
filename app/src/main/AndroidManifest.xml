@@ -17,12 +17,14 @@
         </activity>
         <activity android:name=".MainActivity"></activity>
         <activity android:name=".DetailActivity">
-            <user-permission
-                android:name="android.permission.CAMERA"
-            />
+
 
         </activity>
 
+        <uses-permission
+            android:name="android.permission.CAMERA">
+
+        </uses-permission>
 
     </application>
 

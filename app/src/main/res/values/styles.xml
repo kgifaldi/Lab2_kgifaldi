@@ -1,4 +1,10 @@
+
 <resources>
+    <style name="MyMaterialTheme" parent="SuperMaterialTheme">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
@@ -6,6 +12,22 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+
+    </style>
+    <style name="SuperMaterialTheme" parent="Theme.AppCompat"></style>
+
+    <style name="MyToolbarTheme" parent="ThemeOverlay.AppCompat.Light">
+        <item name="textColorPrimary">@color/textColorPrimary</item>
+        <item name="textColorSecondary">@color/textColorSecondary</item>
+        <item name="colorBackground">@color/colorBackground</item>
+    </style>
+
+    <style name="MyPopupTheme" parent="ThemeOverlay.AppCompat.Light">
+
+        <item name="textColorPrimary">@color/textColorPrimary</item>
+        <item name="android:popupMenuStyle">@style/MyPopupTheme</item>
+        <item name="colorBackground">@color/colorBackground</item>
+
     </style>
 
 </resources>

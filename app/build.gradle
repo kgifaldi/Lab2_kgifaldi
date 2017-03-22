@@ -1,12 +1,12 @@
 apply plugin: 'com.android.application'
-
+//compile 'com.android.support:design:22.2.0'
 android {
     compileSdkVersion 23
     buildToolsVersion "23.0.3"
 
     defaultConfig {
         applicationId "com.cs60333.kgifaldi.lab2_kgifaldi"
-        minSdkVersion 18
+        minSdkVersion 17
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"

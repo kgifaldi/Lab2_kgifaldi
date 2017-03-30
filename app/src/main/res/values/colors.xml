@@ -15,4 +15,10 @@
     <color name="windowBackgroundMaterial">#0FF</color>
 
 
+    <color name="colorBackground">#232</color>
+    <color name="textColorPrimary">#555</color>
+    <color name="textColorSecondary">#856</color>
+
+
+
 </resources>

@@ -17,6 +17,7 @@ import android.content.Context;
 import android.support.design.widget.Snackbar;
 
 import android.support.design.widget.CoordinatorLayout;
+import android.widget.Toolbar;
 
 import java.util.ArrayList;
 
@@ -32,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Toolbar...
 
-        Toolbar t = (Toolbar) findViewById(R.id.toolbar);
+        android.support.v7.widget.Toolbar t = (android.support.v7.widget.Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(t);
         t.setTitle("ND Athletics");
 

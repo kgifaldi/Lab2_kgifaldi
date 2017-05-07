@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.app" >
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <item android:id="@+id/action_settings"
+        android:title="action_settings"
+        android:orderInCategory="100"
+        app:showAsAction="never" />
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
@@ -41,3 +50,4 @@
     app:showAsAction="never"
     />
 </LinearLayout>
+    </menu>

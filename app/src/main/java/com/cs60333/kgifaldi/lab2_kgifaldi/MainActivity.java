@@ -17,12 +17,17 @@ import android.content.Context;
 import android.support.design.widget.Snackbar;
 
 import android.support.design.widget.CoordinatorLayout;
-import android.widget.Toolbar;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import static com.cs60333.kgifaldi.lab2_kgifaldi.R.styleable.CoordinatorLayout;
+
 public class MainActivity extends AppCompatActivity {
     ArrayList<Team> al = new ArrayList<>();
+
+    int num = 0;
+    DBHelper dbhelper = new DBHelper(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,12 +103,30 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public boolean onCreateOptionsMenu (Menu menu) {
-        MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.menu_main, menu);
-        return true;
-    }
 
+
+    public void fn_insert(View view){
+
+        TextView date = (TextView) findViewById(R.id.date);
+        TextView teamName = (TextView) findViewById(R.id.rightTeamName);
+        //TextView teamLogo = (TextView) findViewById(R.id.rightTeamLogo);
+        TextView teamMascot = (TextView) findViewById(R.id.rightTeamMascot);
+        TextView teamRecord = (TextView) findViewById(R.id.rightTeamRecord);
+        TextView finalScore = (TextView) findViewById(R.id.finalScore);
+        String ds = String.valueOf(date.getText());
+        String dn = String.valueOf(teamName.getText());
+        String dm = String.valueOf(teamMascot.getText());
+        String dr = String.valueOf(teamRecord.getText());
+        String df = String.valueOf(finalScore.getText());
+        String tmpLogo = "temp"; // TODO
+        int teamid = num++;
+        //idbhelper.insertData(new Team(tmpLogo, dn, ds, dm, dr, df));
+       }
+
+
+
+
+    // TODO: below
     public String gameSchedule(){
         StringBuilder str = new StringBuilder();
         for(int i = 0; i < al.size(); i++) {
@@ -112,6 +135,45 @@ public class MainActivity extends AppCompatActivity {
         }
         return str.toString();
     }
+
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+        int item_id = item.getItemId();
+
+        if (item_id == R.id.woman) {
+            // to be implemented later
+        }
+        else if (item_id == R.id.men){
+            // to be implemented later
+        }
+        else if (item_id == R.id.on){
+            // to be implemented later
+        }
+        else if (item_id == R.id.off){
+            // to be implemented later
+        }
+        return false;
+    }
+
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo){
+
+        super.onCreateContextMenu(menu, v, menuInfo);
+        registerForContextMenu((View) findViewById(R.id.settings));
+
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.floating_contextual_menu, menu);
+    }
+    // TODO: above
+
+
+
+    public boolean onCreateOptionsMenu (Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -123,23 +185,19 @@ public class MainActivity extends AppCompatActivity {
             shareIntent.setType("text/plain");
             shareIntent.putExtra("android.content.Intent.EXTRA_SUBJECT", "BasketBall Matches");
             shareIntent.putExtra("android.content.Intent.EXTRA_TEXT", gameSchedule());
-            startActivity(Intent.createChooser(shareIntent), "Share via");
+            startActivity(Intent.createChooser(shareIntent, "Share via"));
         }
 
         else if (res_id == R.id.sync) {
 // Snackbar with Try Again action
-            Coordinatorlayout coordinatorLayout = (CoordinatorLayout) findViewById(R.id.coordinatorlayout);
+            final CoordinatorLayout coordinatorLayout = (CoordinatorLayout) findViewById(R.id.coordinatorlayout);
 
-            SnackBar snackbar = SnackBar.make(coordinatorLayout, "Sync is not yet implemented", Snackbar.LENGTH_LONG);
+            Snackbar snackbar = Snackbar.make(coordinatorLayout, "Sync is not yet implemented", Snackbar.LENGTH_LONG);
 
             snackbar.setAction("Try Again", new View.OnClickListener() {
-
                 @Override
-
                 public void onClick(View v) {
-
-                    SnackBar.make(coordinatorLayout, "Wait for the next few labs. Thank you for your patience", Snackbar.LENGTH_LONG).show();
-
+                    Snackbar.make(coordinatorLayout, "Wait for the next few labs. Thank you for your patience", Snackbar.LENGTH_LONG).show();
                 }
 
             });
@@ -149,41 +207,9 @@ public class MainActivity extends AppCompatActivity {
         }
 
         else if (res_id == R.id.settings) {
-            @Override
-
-            public void onCreateContextMenu (ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
-
-                super.onCreateContextMenu(menu, v, menuInfo);
- //  TODO   !!!!!!!!!!        //  registerforContextMenu((View) getViewById(R.id.settings))
-
-                MenuInflater menuInflater = getMenuInflater();
-                menuInflater.inflate(R.menu.floating_contextual_menu, menu);
-            }
-
-            @Override
-
-            public boolean onContextItemSelected(MenuItem item) {
-
-                int item_id = item.getItemId();
-
-                if (item_id == R.id.women) {
-
-// to be implemented later
-
-                }
-                else if (item_id == R.id.men){
-
-                }
-                else if (item_id == R.id.on){
-
-                }
-                else if (item_id == R.id.off){
-
-                }
-                return false;
-
-            }
-
+            registerForContextMenu((View) findViewById(R.id.settings));
+            //    TODO:below    ???                                ???
+            onCreateContextMenu(null, findViewById(R.id.settings), null);
 
         }
         return true;
